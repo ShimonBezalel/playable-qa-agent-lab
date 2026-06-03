@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Misleading Instruction</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="playable-shell" aria-label="Collect three coins playable">
+      <section class="stage">
+        <p class="eyebrow">Mini reward challenge</p>
+        <h1 data-testid="instruction">Drag the coin into the basket to unlock your reward.</h1>
+
+        <div class="coin-zone" aria-label="Coin collection area">
+          <button class="coin-button" data-testid="coin-button" type="button" aria-label="Collect coin">
+            <span class="coin-face">COIN</span>
+          </button>
+        </div>
+
+        <p class="progress" data-testid="progress" aria-live="polite">Progress: 0/3</p>
+
+        <section class="end-card" data-testid="end-card" hidden>
+          <h2>Reward unlocked</h2>
+          <p>You collected all 3 coins.</p>
+          <button class="cta-button" data-testid="cta-button" type="button">Claim reward</button>
+        </section>
+
+        <pre class="event-log" data-testid="event-log" aria-label="Playable event log">[]</pre>
+      </section>
+    </main>
+
+    <script src="./playable.js"></script>
+  </body>
+</html>
