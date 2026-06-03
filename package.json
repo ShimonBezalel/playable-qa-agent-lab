@@ -1,0 +1,22 @@
+{
+  "name": "playable-qa-agent-lab",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Local lab for deterministic QA and agent-skill evaluation of playable ads.",
+  "scripts": {
+    "test": "vitest run",
+    "qa:good": "tsx src/harness/cli.ts good",
+    "qa:bugs": "tsx src/harness/cli.ts bugs",
+    "qa:all": "tsx src/harness/cli.ts all",
+    "eval:skills": "tsx src/skill-evals/runSkillEvals.ts",
+    "demo": "tsx src/demo/runDemo.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^20.19.0",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}
