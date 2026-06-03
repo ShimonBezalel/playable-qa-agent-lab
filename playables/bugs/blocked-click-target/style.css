@@ -1,0 +1,180 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f7fb;
+  color: #17202f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, rgba(0, 124, 116, 0.16), transparent 38%),
+    linear-gradient(315deg, rgba(238, 178, 50, 0.22), transparent 42%),
+    #f4f7fb;
+}
+
+button {
+  font: inherit;
+}
+
+.playable-shell {
+  width: min(100vw, 430px);
+  min-height: min(100vh, 760px);
+  padding: 20px;
+  display: grid;
+  place-items: center;
+}
+
+.stage {
+  width: 100%;
+  min-height: 620px;
+  padding: 28px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto auto;
+  gap: 18px;
+  border: 1px solid rgba(23, 32, 47, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 40px rgba(23, 32, 47, 0.16);
+}
+
+.eyebrow {
+  margin: 0;
+  color: #007c74;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.65rem;
+  line-height: 1.15;
+}
+
+.coin-zone {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+}
+
+.coin-button {
+  width: 148px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #3c2500;
+  font-weight: 900;
+  cursor: pointer;
+  background:
+    radial-gradient(circle at 34% 28%, #fff3a8 0 18%, transparent 19%),
+    radial-gradient(circle, #ffd45c 0 45%, #e69f19 46% 68%, #a86708 69% 100%);
+  box-shadow: 0 12px 0 #704809, 0 22px 30px rgba(112, 72, 9, 0.28);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.coin-button:hover,
+.coin-button:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 0 #704809, 0 26px 34px rgba(112, 72, 9, 0.3);
+}
+
+.coin-button:active {
+  transform: translateY(6px);
+  box-shadow: 0 6px 0 #704809, 0 14px 20px rgba(112, 72, 9, 0.24);
+}
+
+.coin-face {
+  width: 78%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(60, 37, 0, 0.28);
+  border-radius: 50%;
+  font-size: 1.18rem;
+}
+
+.click-blocker {
+  position: absolute;
+  z-index: 2;
+  width: 180px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: transparent;
+  cursor: default;
+}
+
+.progress {
+  min-height: 32px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 124, 116, 0.24);
+  border-radius: 8px;
+  background: #e8f7f5;
+  color: #075852;
+  font-weight: 800;
+  text-align: center;
+}
+
+.end-card {
+  padding: 18px;
+  border: 1px solid rgba(23, 32, 47, 0.14);
+  border-radius: 8px;
+  background: #17202f;
+  color: #ffffff;
+  text-align: center;
+}
+
+.end-card[hidden] {
+  display: none;
+}
+
+.end-card h2 {
+  margin-bottom: 6px;
+  font-size: 1.25rem;
+}
+
+.cta-button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #ffbf2f;
+  color: #17202f;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+  background: #ffd66f;
+}
+
+.event-log {
+  min-height: 60px;
+  max-height: 92px;
+  margin: 0;
+  padding: 8px;
+  overflow: auto;
+  border-radius: 8px;
+  background: #eef2f6;
+  color: #4d5b70;
+  font-size: 0.72rem;
+  white-space: pre-wrap;
+}
