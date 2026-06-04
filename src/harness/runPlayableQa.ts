@@ -208,7 +208,7 @@ function buildReport(input: {
     consoleCheck.details = `${errorMessages.length} console/page error(s) captured.`;
   }
 
-  const status = statusFromChecks(checks, input.playable.expected.status);
+  const status = statusFromChecks(checks);
   const failureSummary = summarizeFailedChecks(checks);
 
   return {
@@ -227,10 +227,7 @@ function buildReport(input: {
   };
 }
 
-function statusFromChecks(checks: QaCheckResult[], expectedStatus: "pass" | "fail" | "warning"): QaStatus {
-  if (expectedStatus === "warning") {
-    return checks.some((check) => check.status === "fail") ? "fail" : "warning";
-  }
+function statusFromChecks(checks: QaCheckResult[]): QaStatus {
   if (checks.some((check) => check.status === "fail")) return "fail";
   if (checks.some((check) => check.status === "warning")) return "warning";
   return "pass";

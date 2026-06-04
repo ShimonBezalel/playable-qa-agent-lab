@@ -70,7 +70,41 @@ describe("playable QA harness", () => {
             `${playable.name}: ${warningCheck}`
           ).toBe("warning");
         }
+
+        if (playable.name === "misleading-instruction") {
+          expect(
+            result.report.checks.filter((check) => check.status !== "pass").map((check) => check.name),
+            playable.name
+          ).toEqual(["instruction clarity"]);
+          expect(result.report.status, playable.name).toBe("warning");
+        }
       }
+    } finally {
+      await rm(dir, { recursive: true, force: true });
+    }
+  });
+
+  it("does not report warning solely because the playable expected profile is warning", async () => {
+    const dir = await mkdtemp(path.join(os.tmpdir(), "qa-warning-profile-"));
+    const goodPlayable = playableCases.find((item) => item.name === "good");
+    expect(goodPlayable).toBeDefined();
+
+    try {
+      const result = await runPlayableQa(
+        {
+          ...goodPlayable!,
+          name: "clean-expected-warning",
+          expected: {
+            status: "warning",
+            failureClass: "discoverability/UX confusion"
+          }
+        },
+        { reportRoot: dir }
+      );
+
+      expect(result.report.checks.every((check) => check.status === "pass")).toBe(true);
+      expect(result.report.status).toBe("pass");
+      expect(result.report.suggestedFailureClass).toBeUndefined();
     } finally {
       await rm(dir, { recursive: true, force: true });
     }
